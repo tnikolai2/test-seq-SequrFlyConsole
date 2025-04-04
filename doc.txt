@@ -1,0 +1,25 @@
+#Native
+
+java -agentlib:native-image-agent=config-output-dir=config -jar xx.jar
+ -->create folder with reachability-metadata.json
+
+ put in
+ src\main\resources\META-INF\native-image\reachability-metadata.json
+
+
+                     <buildArgs>
+                         <buildArg>--verbose</buildArg>
+                         <buildArg>-Djava.awt.headless=false</buildArg>
+                         <buildArg>-H:+ForeignAPISupport</buildArg>
+                         <buildArg>-H:+UnlockExperimentalVMOptions</buildArg>
+                         <buildArg>--no-fallback</buildArg>
+                         #without console
+                         <buildArg>-H:NativeLinkerOption=/SUBSYSTEM:WINDOWS</buildArg>
+                         <buildArg>-H:NativeLinkerOption=/ENTRY:mainCRTStartup</buildArg>
+                     </buildArgs>
+
+//need locate correct ${java.home}\lib\
+System.setProperty("java.home", "E:\\prgs\\j\\graalvm-jdk-24+36.1");
+
+
+
